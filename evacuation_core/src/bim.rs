@@ -28,7 +28,7 @@ pub mod bim_tools;
 mod cli;
 pub mod configuration;
 mod graph;
-mod json_object;
+pub mod json_object;
 mod json_renga;
 
 pub fn run_rust(scenario_configuration: &ScenarioCfg) {

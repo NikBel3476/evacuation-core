@@ -82,23 +82,23 @@ impl Point {
 	}
 }
 
-impl From<Point> for iced::Point {
-	fn from(value: Point) -> Self {
-		Self {
-			x: value.x as f32,
-			y: value.y as f32,
-		}
-	}
-}
+// impl From<Point> for iced::Point {
+// 	fn from(value: Point) -> Self {
+// 		Self {
+// 			x: value.x as f32,
+// 			y: value.y as f32,
+// 		}
+// 	}
+// }
 
-impl From<&Point> for iced::Point {
-	fn from(value: &Point) -> Self {
-		Self {
-			x: value.x as f32,
-			y: value.y as f32,
-		}
-	}
-}
+// impl From<&Point> for iced::Point {
+// 	fn from(value: &Point) -> Self {
+// 		Self {
+// 			x: value.x as f32,
+// 			y: value.y as f32,
+// 		}
+// 	}
+// }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Coordinates {
