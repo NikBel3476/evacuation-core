@@ -3,18 +3,17 @@
 ![test workflow](https://github.com/NikBel3476/evacuation/actions/workflows/test.yml/badge.svg)
 [![codecov](https://codecov.io/gh/NikBel3476/evacuation/branch/master/graph/badge.svg?token=ZPETC3A6Y5)](https://codecov.io/gh/NikBel3476/evacuation)
 
-**EvacuationC** -- программа моделирования движения людей в здании. 
+Ядро программы для моделирования движения людей в здании при эвакуации. 
 
 Резульататом работы программы является время освобождения здания (длительность эвакуации).
 
 ## Необходимый интсрументарий
 - Rust последней версии(rustup, rustc и cargo). [Ссылка для скачивания rust](https://www.rust-lang.org/tools/install)
-- gtk3 или поддержка XDG Desktop Portal (для дистрибутивов Linux)
 
-## Сборка и запуск
+## Сборка
 
 1. Перейти в корневую директорию проекта
-2. Выполнить команду `cargo run` для запуска приложения
+2. Выполнить команду `cargo build` для сборки
 
 Настройки моделируемого сценария задаются в файле scenario.json. Он состоит из нескольких секций:
 ```
