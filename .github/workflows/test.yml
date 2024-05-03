@@ -36,7 +36,7 @@ jobs:
           args: grcov
 
       - name: Check formatting
-        run: cargo fmt --manifest-path core/Cargo.toml --check
+        run: cargo fmt --manifest-path evacuation_core/Cargo.toml --check
 
       # - name: Linting
       #   run: cargo clippy -- -D warnings # TODO: return this stage after warnings fix
