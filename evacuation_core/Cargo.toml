@@ -27,5 +27,5 @@ triangulate = { git = "https://github.com/colinjneville/triangulate.git", branch
 pyo3 = { version = "0.18.3", features = ["auto-initialize"] }
 
 [dev-dependencies]
-insta = { version = "1.29.0", features = ["yaml"] }
-rstest = "0.18.1"
+insta = { version = "1.38.0", features = ["yaml"] }
+rstest = "0.19.0"

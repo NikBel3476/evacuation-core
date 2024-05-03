@@ -1,5 +1,5 @@
 ---
-source: src-tauri/src/bim.rs
+source: evacuation_core/src/bim.rs
 expression: modeling_result
 ---
 number_of_people_inside_building: 0
