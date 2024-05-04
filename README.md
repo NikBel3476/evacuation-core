@@ -1,7 +1,7 @@
 # Evacuation
 
 ![test workflow](https://github.com/NikBel3476/evacuation/actions/workflows/test.yml/badge.svg)
-[![codecov](https://codecov.io/gh/NikBel3476/evacuation/branch/master/graph/badge.svg?token=ZPETC3A6Y5)](https://codecov.io/gh/NikBel3476/evacuation)
+[![codecov](https://codecov.io/gh/NikBel3476/evacuation-core/graph/badge.svg?token=XXP6KQS1KU)](https://codecov.io/gh/NikBel3476/evacuation-core)
 
 Ядро программы для моделирования движения людей в здании при эвакуации. 
 
