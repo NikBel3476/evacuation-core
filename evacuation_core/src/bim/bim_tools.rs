@@ -15,7 +15,7 @@ const EVACUATION_MODELING_MAX_SPEED: f64 = 100.0;
 const EVACUATION_TIME: f64 = 0.0;
 
 /// Структура, расширяющая элемент DOOR_*
-#[derive(Debug, Clone, Default)]
+#[derive(Debug, Clone, Default, PartialEq)]
 pub struct BimTransit {
 	/// UUID идентификатор элемента
 	pub uuid: Uuid,
@@ -44,7 +44,7 @@ pub struct BimTransit {
 }
 
 /// Структура, расширяющая элемент типа ROOM и STAIR
-#[derive(Debug, Clone, Default)]
+#[derive(Debug, Clone, Default, PartialEq)]
 pub struct BimZone {
 	/// UUID идентификатор элемента
 	pub uuid: Uuid,
@@ -79,6 +79,7 @@ pub struct BimZone {
 }
 
 /// Структура, описывающая этаж
+#[derive(Debug, Clone, PartialEq)]
 pub struct BimLevel {
 	/// Массив зон, которые принадлежат этажу
 	pub zones: Vec<BimZone>,
@@ -91,6 +92,7 @@ pub struct BimLevel {
 }
 
 /// Структура, описывающая здание
+#[derive(Debug, Clone, PartialEq)]
 pub struct Bim {
 	/// Массив уровней здания
 	pub levels: Vec<BimLevel>,
@@ -107,7 +109,7 @@ pub struct Bim {
 	pub evacuation_time_in_minutes: f64,
 }
 
-#[derive(Serialize)]
+#[derive(Serialize, Debug, Clone, PartialEq)]
 pub struct EvacuationModelingResult {
 	pub number_of_people_inside_building: f64,
 	pub number_of_evacuated_people: f64,
@@ -118,32 +120,32 @@ pub struct EvacuationModelingResult {
 	pub distribution_by_time_steps: DistributionByTimeSteps,
 }
 
-#[derive(Serialize)]
+#[derive(Serialize, Debug, Clone, PartialEq)]
 pub struct DistributionState {
 	pub time_in_minutes: f64,
 	pub distribution: Vec<f64>,
 }
 
-#[derive(Serialize)]
+#[derive(Serialize, Debug, Clone, PartialEq)]
 pub struct DistributionByTimeSteps {
 	pub items: Vec<ItemTimeStepData>,
 }
 
-#[derive(Serialize)]
+#[derive(Serialize, Debug, Clone, PartialEq)]
 pub struct ItemTimeStepData {
 	// pub doors: Vec<DoorTimeStepData>,
 	pub rooms: Vec<RoomTimeStepData>,
 	pub time: f64,
 }
 
-#[derive(Serialize)]
+#[derive(Serialize, Debug, Clone, PartialEq)]
 pub struct DoorTimeStepData {
 	pub from: Uuid,
 	pub nfrom: f64,
 	pub uuid: Uuid,
 }
 
-#[derive(Serialize)]
+#[derive(Serialize, Debug, Clone, PartialEq)]
 pub struct RoomTimeStepData {
 	pub uuid: Uuid,
 	pub density: f64,

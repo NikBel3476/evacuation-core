@@ -8,7 +8,7 @@ use std::error::Error;
 use std::fs;
 use uuid::Uuid;
 
-#[derive(Debug, Serialize, Deserialize, Default, Clone)]
+#[derive(Debug, Serialize, Deserialize, Default, Clone, PartialEq, Eq)]
 pub struct Address {
 	#[serde(rename = "City")]
 	pub city: String,
@@ -28,7 +28,7 @@ impl From<AddressRenga> for Address {
 	}
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone, Copy, Default)]
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, Default, PartialEq)]
 pub struct Point {
 	pub x: f64,
 	pub y: f64,
@@ -100,12 +100,12 @@ impl Point {
 // 	}
 // }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 pub struct Coordinates {
 	pub points: Vec<Point>,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 pub struct BuildElement {
 	#[serde(rename = "Id")]
 	pub id: Uuid,
@@ -165,7 +165,7 @@ impl From<&BuildingElementRenga> for BuildElement {
 	}
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 pub struct Level {
 	#[serde(rename = "NameLevel")]
 	pub name: String,
@@ -189,7 +189,7 @@ impl From<&BuildingLevelRenga> for Level {
 	}
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 pub struct BuildingStruct {
 	#[serde(rename = "Devs")]
 	pub devs: Vec<i64>,

@@ -5,12 +5,13 @@ use triangle_rs::Delaunay;
 use triangulate::PolygonList;
 use triangulate::{formats, ListFormat};
 
+#[derive(Debug, Clone, PartialEq)]
 pub struct Line {
 	pub p1: Point,
 	pub p2: Point,
 }
 
-#[derive(Debug, Clone, Default)]
+#[derive(Debug, Clone, Default, PartialEq)]
 pub struct Polygon {
 	pub points: Vec<Point>,
 	// delaunay: Delaunay,

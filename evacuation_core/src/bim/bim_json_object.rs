@@ -23,7 +23,7 @@ pub enum BimElementSign {
 }
 
 /// Структура, описывающая элемент
-#[derive(Debug)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct BimJsonElement {
 	/// [JSON] UUID идентификатор элемента
 	pub uuid: Uuid,
@@ -46,6 +46,7 @@ pub struct BimJsonElement {
 }
 
 /// Структура поля, описывающего географическое положение объекта
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub struct BimJsonAddress {
 	/// [JSON] Название города
 	pub city: String,
@@ -56,6 +57,7 @@ pub struct BimJsonAddress {
 }
 
 /// Структура, описывающая этаж
+#[derive(Debug, Clone, PartialEq)]
 pub struct BimJsonLevel {
 	/// [JSON] Название этажа
 	pub name: String,
@@ -66,6 +68,7 @@ pub struct BimJsonLevel {
 }
 
 /// Структура, описывающая здание
+#[derive(Debug, Clone, PartialEq)]
 pub struct BimJsonObject {
 	/// [JSON] Информация о местоположении объекта
 	pub address: BimJsonAddress,
