@@ -24,7 +24,7 @@ uuid = { version = "1.8", features = [
 triangle-rs = { git = "https://github.com/NikBel3476/triangle-rs.git", rev = "0a8faac" }
 spade = "2.2.0"
 triangulate = { git = "https://github.com/colinjneville/triangulate.git", branch = "master" }
-pyo3 = { version = "0.18.3", features = ["auto-initialize"] }
+# pyo3 = { version = "0.18.3", features = ["auto-initialize"] }
 
 [dev-dependencies]
 insta = { version = "1.38.0", features = ["yaml"] }
