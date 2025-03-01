@@ -1,0 +1,8 @@
+---
+source: evacuation_core/src/bim.rs
+expression: modeling_result
+snapshot_kind: text
+---
+number_of_people_inside_building: 0
+number_of_evacuated_people: 7336.163422551393
+time_in_seconds: 658.7999999999886

@@ -1,8 +1,0 @@
----
-source: src-tauri/src/bim.rs
-expression: modeling_result
----
-number_of_people_inside_building: 0
-number_of_evacuated_people: 1004.8450418391097
-time_in_seconds: 179.3999999999988
-
