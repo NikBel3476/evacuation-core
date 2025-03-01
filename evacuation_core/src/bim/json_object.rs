@@ -2,7 +2,7 @@ use super::bim_polygon_tools::Line;
 use crate::bim::json_renga::{
 	AddressRenga, BuildingElementRenga, BuildingLevelRenga, BuildingStructRenga,
 };
-use rand::prelude::*;
+use rand::{prelude::*, rng};
 use serde::{Deserialize, Serialize};
 use std::error::Error;
 use std::fs;
@@ -127,10 +127,10 @@ pub struct BuildElement {
 
 impl From<&BuildingElementRenga> for BuildElement {
 	fn from(element_renga: &BuildingElementRenga) -> Self {
-		let mut rng = thread_rng();
+		let mut rng = rng();
 		let pivot_point = Point {
-			x: rng.gen_range(0.0..=10.0),
-			y: rng.gen_range(0.0..=10.0),
+			x: rng.random_range(0.0..=10.0),
+			y: rng.random_range(0.0..=10.0),
 		};
 		Self {
 			outputs: element_renga.outputs.clone(),
