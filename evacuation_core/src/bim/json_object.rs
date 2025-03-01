@@ -2,10 +2,7 @@ use super::bim_polygon_tools::Line;
 use crate::bim::json_renga::{
 	AddressRenga, BuildingElementRenga, BuildingLevelRenga, BuildingStructRenga,
 };
-use rand::{
-	prelude::*,
-	rng
-};
+use rand::{prelude::*, rng};
 use serde::{Deserialize, Serialize};
 use std::error::Error;
 use std::fs;

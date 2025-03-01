@@ -11,14 +11,16 @@ pub fn run_python() -> PyResult<()> {
 		file.read_to_string(&mut code).unwrap();
 
 		let code = std::ffi::CString::new(code).expect("Cannon convert code to C string");
-		let file_name = std::ffi::CString::new("generateJSON.py").expect("Cannot convert file name to C string");
-		let module_name = std::ffi::CString::new("generateJSON").expect("Cannot convert module name to C string");
-		let python_exec = 
-			PyModule::from_code(
-				py,
-				code.as_c_str(),
-				file_name.as_c_str(),
-				module_name.as_c_str())?;
+		let file_name = std::ffi::CString::new("generateJSON.py")
+			.expect("Cannot convert file name to C string");
+		let module_name =
+			std::ffi::CString::new("generateJSON").expect("Cannot convert module name to C string");
+		let python_exec = PyModule::from_code(
+			py,
+			code.as_c_str(),
+			file_name.as_c_str(),
+			module_name.as_c_str(),
+		)?;
 
 		python_exec.getattr("main")?.call0().unwrap();
 		Ok(())
