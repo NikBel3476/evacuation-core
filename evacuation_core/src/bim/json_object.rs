@@ -110,7 +110,7 @@ pub struct BuildElement {
 	#[serde(rename = "Id")]
 	pub id: Uuid,
 	#[serde(rename = "@")]
-	pub uuid: Uuid,
+	pub uuid: Option<Uuid>,
 	#[serde(rename = "Name")]
 	pub name: String,
 	#[serde(rename = "SizeZ")]
@@ -158,8 +158,8 @@ impl From<&BuildingElementRenga> for BuildElement {
 			size_z: element_renga.size_z,
 			sign: element_renga.sign.clone(),
 			// TODO: implement
-			id: element_renga.uuid,
-			uuid: element_renga.uuid,
+			id: element_renga.id,
+			uuid: None,
 			name: element_renga.name.clone(),
 		}
 	}

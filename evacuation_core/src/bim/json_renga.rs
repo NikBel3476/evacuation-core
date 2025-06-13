@@ -56,7 +56,7 @@ pub struct BuildingElementRenga {
 	#[serde(rename = "Name")]
 	pub name: String,
 	#[serde(rename = "Id")]
-	pub uuid: Uuid,
+	pub id: Uuid,
 	#[serde(rename = "Sign")]
 	pub sign: String,
 	#[serde(rename = "SizeZ")]
