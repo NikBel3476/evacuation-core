@@ -39,7 +39,7 @@ pub fn bim_create_file_name_rust(base_file_name: &str, middle_name: &str, suffix
 	.to_owned()
 }
 
-pub fn bim_output_head(bim: &Bim, file: &mut File) {
+pub fn bim_output_head<T: Write>(bim: &Bim, file: &mut T) {
 	file.write_all(b"t,").expect("Failed to write to file");
 
 	for zone in &bim.zones {
@@ -56,7 +56,7 @@ pub fn bim_output_head(bim: &Bim, file: &mut File) {
 	file.flush().expect("Failed to flush file");
 }
 
-pub fn bim_output_body(bim: &Bim, time: f64, file: &mut File) {
+pub fn bim_output_body<T: Write>(bim: &Bim, time: f64, file: &mut T) {
 	file.write_all(format!("{time:.2},").as_bytes())
 		.expect("Failed to write to file");
 
@@ -74,7 +74,7 @@ pub fn bim_output_body(bim: &Bim, time: f64, file: &mut File) {
 	file.flush().expect("Failed to flush file");
 }
 
-pub fn bim_output_body_detailed(distribution_states: &[DistributionState], file: &mut File) {
+pub fn bim_output_body_detailed<T: Write>(distribution_states: &[DistributionState], file: &mut T) {
 	let mut bw = BufWriter::new(file);
 
 	for distribution_state in distribution_states {

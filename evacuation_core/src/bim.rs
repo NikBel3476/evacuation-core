@@ -1,4 +1,4 @@
-use std::io::Write;
+use std::io::{BufWriter, Write};
 use std::path::Path;
 use std::time::Instant;
 
@@ -156,9 +156,11 @@ pub fn run_evacuation_modeling(
 			.unwrap_or_else(|_| panic!("Error creating directory {OUTPUT_DIR}"));
 	}
 
-	let mut fp_detail =
-		std::fs::File::create(output_detail).expect("Error opening the output file");
-	let mut fp_short = std::fs::File::create(output_short).expect("Error opening the output file");
+	let mut fp_detail = BufWriter::new(
+		std::fs::File::create(output_detail).expect("Error opening the output file"),
+	);
+	let mut fp_short =
+		BufWriter::new(std::fs::File::create(output_short).expect("Error opening the output file"));
 	let mut log_file = match std::path::Path::new(&log).exists() {
 		true => std::fs::File::options()
 			.append(true)
@@ -166,8 +168,9 @@ pub fn run_evacuation_modeling(
 			.expect("Error opening the log file"),
 		false => std::fs::File::create(&log).expect("Error create the log file"),
 	};
-	let mut time_data_file =
-		std::fs::File::create(time_data_path).expect("Error opening time data file");
+	let mut time_data_file = BufWriter::new(
+		std::fs::File::create(time_data_path).expect("Error opening time data file"),
+	);
 
 	let current_time = chrono::Local::now()
 		.format("%Y-%m-%d %H:%M:%S.%6f")
@@ -266,8 +269,9 @@ pub fn run_rust_old() {
 			bim_create_file_name_rust(&filename, OUTPUT_SHORT_FILE_RUST, OUTPUT_SUFFIX);
 		let log = bim_create_file_name_rust(&log_filename, "_rust", ".txt");
 
-		let mut fp_detail =
-			std::fs::File::create(&output_detail).expect("Error opening the output file");
+		let mut fp_detail = BufWriter::new(
+			std::fs::File::create(&output_detail).expect("Error opening the output file"),
+		);
 		let mut fp_short =
 			std::fs::File::create(&output_short).expect("Error opening the output file");
 		let mut log_file = match std::path::Path::new(&log).exists() {
